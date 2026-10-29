@@ -1,0 +1,5 @@
+# Register the skills-first bundle without replacing existing DSH plugin entries.
+- insert:
+    - id: mulqi-jbjbjb
+      name: 'mulqi-jbjbjb'
+      disabled: false
