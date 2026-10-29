@@ -22,7 +22,8 @@ catch (err) {
 const checks = [
   ['package name', pkg.name === 'mulqi-jbjbjb'],
   ['target version', pkg.version === '0.2.1-rc.2'],
-  ['DSH range', pkg.engines?.dsh === '0.2.1-rc.2'],
+  ['DSH engine', pkg.engines?.dsh === '0.2.1-rc.2'],
+  ['Node engine', pkg.engines?.node === '^22.19.0 || >=24.0.0'],
   ['bundle patch', pkg.dsh?.bundle?.patch === './cordis.patch.yml'],
   ['entry point', pkg.main === './index.js'],
   ['license', pkg.license === 'MIT']
@@ -42,6 +43,11 @@ for (const skill of expectedSkills) {
 }
 if (!source.includes("export const inject = ['skills']")) errors.push('DSH skills injection declaration missing')
 if (!source.includes('ctx.skills.register')) errors.push('Skill Registry registration missing')
+
+const packageFiles = new Set(pkg.files ?? [])
+for (const file of ['index.js', 'cordis.patch.yml', 'README.md', 'INSTALL_DSH.md', 'assets/icon.svg']) {
+  if (!packageFiles.has(file)) errors.push(`package files list omits ${file}`)
+}
 
 async function walk(dir) {
   for (const ent of await readdir(dir, { withFileTypes: true })) {
@@ -66,4 +72,5 @@ if (errors.length) {
 console.log(`PASS: required files (${required.length})`)
 console.log(`PASS: package metadata (${checks.length} checks)`)
 console.log(`PASS: DSH Skill Registry and skill declarations (${expectedSkills.length} skills)`)
+console.log('PASS: packaged file list includes required runtime and beginner docs')
 console.log('PASS: no detected symlinks, bytecode, node_modules, or .env files')
