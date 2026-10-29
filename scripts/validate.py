@@ -7,7 +7,7 @@ import sys
 
 ROOT = Path(__file__).resolve().parents[1]
 required = [
-    "README.md", "README.en.md", "INSTALL_DSH.md", "NOTICE.md", "LICENSE",
+    "README.md", "README.id.md", "README.en.md", "INSTALL_DSH.md", "NOTICE.md", "LICENSE",
     "package.json", "index.js", "cordis.patch.yml", "assets/icon.svg",
     "docs/DISCOVERY.md", "tests/plugin.spec.mjs",
 ]
@@ -45,7 +45,7 @@ for skill in skills:
         errors.append(f"missing skill declaration: {skill}")
 if "export const inject = ['skills']" not in source:
     errors.append("missing DSH Skill Registry injection")
-for file in ["index.js", "cordis.patch.yml", "README.md", "INSTALL_DSH.md", "assets/icon.svg"]:
+for file in ["index.js", "cordis.patch.yml", "README.md", "README.id.md", "INSTALL_DSH.md", "assets/icon.svg"]:
     if file not in pkg.get("files", []):
         errors.append(f"package files omit {file}")
 
