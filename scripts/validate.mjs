@@ -3,7 +3,7 @@ import path from 'node:path'
 
 const root = process.cwd()
 const required = [
-  'README.md', 'README.en.md', 'INSTALL_DSH.md', 'NOTICE.md', 'LICENSE',
+  'README.md', 'README.id.md', 'README.en.md', 'INSTALL_DSH.md', 'NOTICE.md', 'LICENSE',
   'package.json', 'index.js', 'cordis.patch.yml', 'assets/icon.svg',
   'docs/DISCOVERY.md', 'tests/plugin.spec.mjs'
 ]
@@ -45,7 +45,7 @@ if (!source.includes("export const inject = ['skills']")) errors.push('DSH skill
 if (!source.includes('ctx.skills.register')) errors.push('Skill Registry registration missing')
 
 const packageFiles = new Set(pkg.files ?? [])
-for (const file of ['index.js', 'cordis.patch.yml', 'README.md', 'INSTALL_DSH.md', 'assets/icon.svg']) {
+for (const file of ['index.js', 'cordis.patch.yml', 'README.md', 'README.id.md', 'INSTALL_DSH.md', 'assets/icon.svg']) {
   if (!packageFiles.has(file)) errors.push(`package files list omits ${file}`)
 }
 
