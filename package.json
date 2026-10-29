@@ -13,6 +13,7 @@
     "index.js",
     "cordis.patch.yml",
     "README.md",
+    "README.id.md",
     "README.en.md",
     "INSTALL_DSH.md",
     "LICENSE",
@@ -20,7 +21,10 @@
     "assets/icon.svg",
     "docs/DISCOVERY.md",
     "scripts/validate.mjs",
-    "tests/plugin.spec.mjs"
+    "scripts/validate.py",
+    "scripts/package.py",
+    "tests/plugin.spec.mjs",
+    "CHANGELOG.md"
   ],
   "license": "MIT",
   "repository": {
