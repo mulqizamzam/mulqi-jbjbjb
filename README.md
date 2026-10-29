@@ -6,6 +6,8 @@ A skills-first DeepSeek Harness (DSH) bundle for reliable software engineering a
 
 > **Scope:** This is a DSH-native plugin bundle, not an AI model, jailbreak bypass, or permission escalation. It provides instruction skills; it does not grant filesystem, shell, network, or deployment permissions, alter provider routing, or disable host policies.
 
+**New to DSH?** Start with the [Indonesian beginner guide](README.id.md). English setup, update, and removal instructions: [INSTALL_DSH.md](INSTALL_DSH.md).
+
 ## What is included
 
 | Skill | Use it for |
@@ -52,8 +54,6 @@ npx @deepseek-ai/dsh plugin --profile web add https://github.com/mulqizamzam/mul
 
 Use your own profile name instead of `web` when needed. Follow DSH's prompts and restart the profile or open a fresh session if requested.
 
-See [INSTALL_DSH.md](INSTALL_DSH.md) for installation, update, removal, and troubleshooting.
-
 ## Use a skill
 
 In a DSH session, request the skill with a slash command if your selected profile's skill consumer supports it:
@@ -78,17 +78,17 @@ The bundle is instruction-only. Any file edits, shell commands, network operatio
 
 ## Development and verification
 
-Install the package dependencies supplied by your DSH environment, then run:
-
 ```bash
 npm test
 npm run validate
+python3 scripts/validate.py
+python3 scripts/package.py /tmp/mulqi-jbjbjb.zip
 ```
 
-A successful local test suite is not a substitute for a smoke test in a running DSH `0.2.1-rc.2` instance.
+Local tests do not replace a smoke test in a running DSH `0.2.1-rc.2` instance.
 
 ## License and attribution
 
-Licensed under MIT. This is an independent, reconciled port of selected engineering and productivity workflows inspired by the prompt collection at [togg53192-cmd/jailbreaks](https://github.com/togg53192-cmd/jailbreaks). See [NOTICE.md](NOTICE.md) for scope and attribution details.
+Licensed under MIT. This is an independent, reconciled port of selected engineering and productivity workflows inspired by [togg53192-cmd/jailbreaks](https://github.com/togg53192-cmd/jailbreaks). See [NOTICE.md](NOTICE.md) for scope and attribution details.
 
 This project is not an official DeepSeek release and does not guarantee identical behavior across models, profiles, or DSH versions.
